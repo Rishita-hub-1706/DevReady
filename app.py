@@ -37,11 +37,11 @@ def login():
 
 @app.route("/hr_dashboard")
 def hr_dashboard():
-    return "Welcome HR Dashboard"
+    return render_template("hr_dashboard.html")
 
 @app.route("/employee_dashboard")
 def employee_dashboard():
-    return "Welcome Employee Dashboard"
+    return render_template("employee_dashboard.html")
 
 
 
