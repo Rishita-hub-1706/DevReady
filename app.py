@@ -25,6 +25,14 @@ def employee_dashboard():
 def hr_dashboard():
     return render_template("hr_dashboard.html")
 
+with app.app_context():
+    if not User.query.filter_by(employee_id="HR001").first():
+        hr = User(employee_id="HR001", password="hr123", role="hr")
+        emp = User(employee_id="EMP001", password="emp123", role="employee")
+        db.session.add(hr)
+        db.session.add(emp)
+        db.session.commit()
+
 
 if __name__ == "__main__":
     app.run(debug=True)
