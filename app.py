@@ -7,6 +7,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    employee_id = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+    role = db.Column(db.String(20), nullable=False)
+
 @app.route("/")
 def login():
     return render_template("login.html")
@@ -18,6 +24,7 @@ def employee_dashboard():
 @app.route("/hr")
 def hr_dashboard():
     return render_template("hr_dashboard.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
