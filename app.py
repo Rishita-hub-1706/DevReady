@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask import request, redirect, url_for, sesssion
+from flask import request, redirect, url_for, session
 
 app = Flask(__name__)
 app.secret_key = "dev_ready_secret_key"
@@ -27,6 +27,9 @@ def login():
         ).first()
 
         if user:
+            session["user_id"] = user.id   # Store their ID
+            session["role"] = user.role      # Store their role (e.g., "hr")
+            
             if user.role == "hr":
                 return redirect(url_for("hr_dashboard"))
             else:
