@@ -27,8 +27,8 @@ def login():
         ).first()
 
         if user:
-            session["user_id"] = user.id   # Store their ID
-            session["role"] = user.role      # Store their role (e.g., "hr")
+            session["user_id"] = user.id   
+            session["role"] = user.role      
             
             if user.role == "hr":
                 return redirect(url_for("hr_dashboard"))
@@ -41,11 +41,21 @@ def login():
 
 @app.route("/hr_dashboard")
 def hr_dashboard():
-    return render_template("hr_dashboard.html")
+    
+    if "role" in session and session["role"] == "hr":
+        return render_template("hr_dashboard.html")
+    return redirect(url_for("login")) 
 
 @app.route("/employee_dashboard")
 def employee_dashboard():
-    return render_template("employee_dashboard.html")
+    if "role" in session and session["role"] == "employee":
+        return render_template("employee_dashboard.html")
+    return redirect(url_for("login"))
+
+@app.route("/logout")
+def logout():
+    session.clear() # Deletes everything in the session
+    return redirect(url_for("login"))
 
 
 
