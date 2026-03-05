@@ -63,15 +63,39 @@ def hr_dashboard():
 
 @app.route("/employee_dashboard")
 def employee_dashboard():
-    if "role" in session and session["role"] == "employee":
-        return render_template("employee_dashboard.html")
-    return redirect(url_for("login"))
+
+    tasks = Task.query.all()
+
+    completed = Task.query.filter_by(completed=True).count()
+    total = Task.query.count()
+
+    progress = 0
+
+    if total > 0:
+        progress = int((completed/total)*100)
+
+    return render_template(
+        "employee_dashboard.html",
+        tasks=tasks,
+        progress=progress
+    )
 
 @app.route("/logout")
 def logout():
     session.clear()
-    flash("You have been logged out.", "info") # 👈 Add this
+    flash("You have been logged out.", "info") 
     return redirect(url_for("login"))
+
+@app.route("/complete_task/<int:task_id>", methods=["POST"])
+def complete_task(task_id):
+
+    task = Task.query.get(task_id)
+
+    task.completed = not task.completed
+
+    db.session.commit()
+
+    return redirect(url_for("employee_dashboard"))
 
 
 

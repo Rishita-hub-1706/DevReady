@@ -16,24 +16,36 @@
 
     <section class="welcome-section">
         <h2>Welcome</h2>
-        <p>Complete your onboarding tasks assigned by HR.</p>
-    </section>
+        <h3>Progress</h3>
 
-    <section class="task-list">
+        <div class="progress-bar">
 
-        <div class="task-card">
-            <input type="checkbox">
-            <label>Submit ID Documents</label>
+            <div class="progress-fill"style="width: {{progress}}%">
         </div>
 
-        <div class="task-card">
-            <input type="checkbox">
-            <label>Install Company Software</label>
         </div>
 
+        <p>{{progress}}% completed</p>
+
+        <div class="task-list">
+
+            {% for task in tasks %}
+
         <div class="task-card">
-            <input type="checkbox">
-            <label>Complete Security Training</label>
+
+        <form method="POST" action="/complete_task/{{task.id}}">
+
+        <input type="checkbox"onchange="this.form.submit()"
+{% if task.completed %} checked {% endif %}>
+
+            <label>{{task.title}}</label>
+
+        </form>
+
+        </div>
+
+            {% endfor %}
+
         </div>
 
     </section>
