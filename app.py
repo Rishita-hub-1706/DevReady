@@ -36,7 +36,7 @@ def login():
                 return redirect(url_for("employee_dashboard"))
         else:
             # 2. This helps you see if the login failed
-            flash("Invalid Employee ID or Password", "error")
+            flash("Invalid ID or Password", "danger")
             return redirect(url_for("login"))
 
     return render_template("login.html")
