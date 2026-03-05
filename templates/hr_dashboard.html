@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Dashboard | Admin</title>
+    <title>DevReady | HR Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        body { background-color: #f8f9fa; }
-        .navbar { background-color: #212529; }
-        .card { border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    </style>
 </head>
-<body>
-    <nav class="navbar navbar-dark px-4 py-3">
-        <span class="navbar-brand mb-0 h1">HR Management Portal</span>
-        <div class="d-flex border-start ps-3">
-            <span class="text-white me-3 mt-1">Welcome, Admin</span>
-            <a href="/logout" class="btn btn-outline-danger btn-sm">Logout</a>
-        </div>
-    </nav>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card p-4 text-center">
-                    <h5 class="text-muted">Total Employees</h5>
-                    <h2 class="display-4">--</h2> </div>
-            </div>
-            <div class="col-md-8">
-                <div class="card p-4">
-                    <h3>Employee Directory</h3>
-                    <p class="text-muted">Below is the list of registered staff members.</p>
-                    <hr>
-                    <table class="table table-hover">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Emp ID</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="3" class="text-center">Database connection pending...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<body>
+
+<div class="dashboard-container">
+
+    <header class="dashboard-header">
+        <h1>DevReady HR Dashboard</h1>
+        <a href="#" class="logout-btn">Logout</a>
+    </header>
+
+    <section class="welcome-section">
+        <h2>Welcome HR</h2>
+        <p>Assign onboarding tasks and monitor employee progress.</p>
+    </section>
+
+    <section class="dashboard-actions">
+
+        <div class="card">
+            <h3>Create Task</h3>
+            <p>Assign a new onboarding task to employees.</p>
+            <button class="primary-btn">Add Task</button>
         </div>
-    </div>
+
+        <div class="card">
+            <h3>View Employees</h3>
+            <p>Check employee onboarding progress.</p>
+            <button class="primary-btn">View List</button>
+        </div>
+
+        <div class="card">
+            <h3>Task Progress</h3>
+            <p>Monitor completed and pending tasks.</p>
+            <button class="primary-btn">View Progress</button>
+        </div>
+
+    </section>
+
+</div>
+
 </body>
 </html>

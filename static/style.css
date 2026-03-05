@@ -58,69 +58,61 @@ button:hover {
     font-size: 12px;
     color: gray;
 }
-/* Global Styles */
-:root {
-    --hr-dark: #212529;
-    --emp-blue: #007bff;
-    --bg-light: #f8f9fa;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.dashboard-container{
+    width: 80%;
+    margin: auto;
+    padding-top: 40px;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-light);
-    color: #333;
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
 }
 
-/* Dashboard Cards */
-.card {
-    border: none !important;
-    border-radius: 12px !important;
-    box-shadow: var(--shadow);
-    transition: transform 0.2s ease;
+.logout-btn{
+    text-decoration:none;
+    padding:8px 16px;
+    background:#ff4d4d;
+    color:white;
+    border-radius:6px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.welcome-section{
+    margin-bottom:30px;
 }
 
-/* HR Dashboard Specifics */
-.navbar-hr {
-    background-color: var(--hr-dark);
-    border-bottom: 3px solid var(--emp-blue);
+.dashboard-actions{
+    display:flex;
+    gap:20px;
 }
 
-.table thead {
-    background-color: var(--hr-dark);
-    color: white;
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+    flex:1;
 }
 
-/* Employee Dashboard Specifics */
-.hero-section {
-    background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
-    color: white;
-    padding: 80px 0;
-    border-radius: 0 0 40px 40px;
-    box-shadow: var(--shadow);
+.primary-btn{
+    margin-top:10px;
+    padding:8px 16px;
+    border:none;
+    background:#4CAF50;
+    color:white;
+    border-radius:6px;
 }
 
-.profile-img {
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--emp-blue);
-    box-shadow: var(--shadow);
+.task-list{
+    margin-top:20px;
 }
 
-/* Flash Messages */
-.alert {
-    border-radius: 10px;
-    border: none;
-    box-shadow: var(--shadow);
+.task-card{
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:10px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.1);
 }

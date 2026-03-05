@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Portal</title>
+    <title>DevReady | Employee Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        body { background-color: #eef2f7; }
-        .hero-section { background: linear-gradient(45deg, #007bff, #6610f2); color: white; padding: 60px 0; border-radius: 0 0 50px 50px; }
-    </style>
 </head>
-<body>
-    <div class="hero-section text-center">
-        <h1>Welcome Back!</h1>
-        <p>Your Employee Dashboard</p>
-        <a href="/logout" class="btn btn-light btn-sm mt-2">Sign Out</a>
-    </div>
 
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow-sm border-0 p-4">
-                    <h4>Personal Profile</h4>
-                    <hr>
-                    <p><strong>Employee ID:</strong> {{ session['user_id'] if session['user_id'] else 'EMPXXXX' }}</p>
-                    <p><strong>Status:</strong> <span class="badge bg-success">Active</span></p>
-                </div>
-            </div>
+<body>
+
+<div class="dashboard-container">
+
+    <header class="dashboard-header">
+        <h1>DevReady Employee Dashboard</h1>
+        <a href="#" class="logout-btn">Logout</a>
+    </header>
+
+    <section class="welcome-section">
+        <h2>Welcome</h2>
+        <p>Complete your onboarding tasks assigned by HR.</p>
+    </section>
+
+    <section class="task-list">
+
+        <div class="task-card">
+            <input type="checkbox">
+            <label>Submit ID Documents</label>
         </div>
-    </div>
+
+        <div class="task-card">
+            <input type="checkbox">
+            <label>Install Company Software</label>
+        </div>
+
+        <div class="task-card">
+            <input type="checkbox">
+            <label>Complete Security Training</label>
+        </div>
+
+    </section>
+
+</div>
+
 </body>
 </html>
