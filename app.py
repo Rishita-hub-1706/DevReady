@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask import request, redirect, url_for, session
+from flask import request, redirect, url_for, session, flash
+
 
 app = Flask(__name__)
 app.secret_key = "dev_ready_secret_key"
@@ -18,24 +19,14 @@ class User(db.Model):
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        employee_id = request.form.get("employee_id")
-        password = request.form["password"]
-
-        user = User.query.filter_by(
-            employee_id=employee_id,
-            password=password
-        ).first()
-
-        if user:
-            session["user_id"] = user.id   
-            session["role"] = user.role      
-            
-            if user.role == "hr":
-                return redirect(url_for("hr_dashboard"))
-            else:
-                return redirect(url_for("employee_dashboard"))
+        # ... (your existing user lookup code)
+        
+        if User:
+            session["role"] = User.role.lower()
+            return redirect(url_for("hr_dashboard"))
         else:
-            return "Invalid credentials"
+            flash("Invalid Employee ID or Password", "error") # 👈 Add this
+            return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -54,7 +45,8 @@ def employee_dashboard():
 
 @app.route("/logout")
 def logout():
-    session.clear() # Deletes everything in the session
+    session.clear()
+    flash("You have been logged out.", "info") # 👈 Add this
     return redirect(url_for("login"))
 
 
