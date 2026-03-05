@@ -97,6 +97,9 @@ def complete_task(task_id):
 
     return redirect(url_for("employee_dashboard"))
 
+@app.route("/logout")
+def logout():
+    return redirect(url_for("login"))
 
 
 
