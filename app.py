@@ -47,12 +47,19 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/hr_dashboard")
+@app.route("/hr_dashboard", methods=["GET","POST"])
 def hr_dashboard():
-    
-    if "role" in session and session["role"] == "hr":
-        return render_template("hr_dashboard.html")
-    return redirect(url_for("login")) 
+
+    if request.method == "POST":
+        task_title = request.form["task"]
+
+        new_task = Task(title=task_title)
+        db.session.add(new_task)
+        db.session.commit()
+
+    tasks = Task.query.all()
+
+    return render_template("hr_dashboard.html", tasks=tasks) 
 
 @app.route("/employee_dashboard")
 def employee_dashboard():

@@ -42,6 +42,26 @@
     </section>
 
 </div>
+<form method="POST" class="task-form">
+
+<input type="text" name="task" placeholder="Enter onboarding task" required>
+
+<button type="submit" class="primary-btn">
+Add Task
+</button>
+
+</form>
+<div class="task-list">
+
+{% for task in tasks %}
+
+<div class="task-card">
+{{ task.title }}
+</div>
+
+{% endfor %}
+
+</div>
 
 </body>
 </html>
