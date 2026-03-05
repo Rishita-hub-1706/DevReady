@@ -2,9 +2,9 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #3A345B;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#3A345B;
     height: 100vh;
 }
 

@@ -62,6 +62,41 @@ Add Task
 {% endfor %}
 
 </div>
+<h3>Onboarding Tasks</h3>
+
+<table class="task-table">
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Task</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for task in tasks %}
+
+<tr>
+<td>{{task.id}}</td>
+<td>{{task.title}}</td>
+
+<td>
+{% if task.completed %}
+Completed
+{% else %}
+Pending
+{% endif %}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
 
 </body>
 </html>
