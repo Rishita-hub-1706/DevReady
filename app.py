@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask import request, redirect, url_for, session, flash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
@@ -19,13 +20,21 @@ class User(db.Model):
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # ... (your existing user lookup code)
         
-        if User:
-            session["role"] = User.role.lower()
-            return redirect(url_for("hr_dashboard"))
+        employee_id = request.form.get("employee_id")
+        password = request.form.get("password")
+
+        
+        user = User.query.filter_by(employee_id=employee_id).first()
+
+        
+        if user and user.password == password:
+            session["role"] = user.role.lower()
+            if session["role"] == "hr":
+                return redirect(url_for("hr_dashboard"))
+            return redirect(url_for("employee_dashboard"))
         else:
-            flash("Invalid Employee ID or Password", "error") # 👈 Add this
+            flash("Invalid ID or Password", "error")
             return redirect(url_for("login"))
 
     return render_template("login.html")
