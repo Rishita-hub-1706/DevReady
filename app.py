@@ -16,6 +16,12 @@ class User(db.Model):
     employee_id = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
     role = db.Column(db.String(20), nullable=False)
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200))
+    completed = db.Column(db.Boolean, default=False)
+
+
 
 @app.route("/", methods=["GET", "POST"])
 def login():
