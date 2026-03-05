@@ -116,3 +116,25 @@ height:100%;
 background:#4CAF50;
 border-radius:20px;
 }
+.task-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:white;
+box-shadow:0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.task-table th,
+.task-table td{
+padding:12px;
+text-align:left;
+border-bottom:1px solid #ddd;
+}
+
+.task-table th{
+background:#f4f4f4;
+}
+
+.task-table tr:hover{
+background:#f9f9f9;
+}
