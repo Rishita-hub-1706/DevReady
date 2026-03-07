@@ -3,10 +3,13 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #3A345B;
 }
 
 /* ---------- LOGIN PAGE ---------- */
+.login-page {
+    background: linear-gradient(135deg, #3A345B, #f3c8dd);
+    height: 100vh;
+}
 
 .container {
     display: flex;
@@ -54,7 +57,7 @@ button {
 }
 
 button:hover {
-    background: #4a22cc;
+    background: #89B7C2;
 }
 
 .info {
@@ -64,11 +67,20 @@ button:hover {
 }
 
 /* ---------- DASHBOARD ---------- */
+.emp_dashboard {
+    background: linear-gradient(135deg, #ECD0EC, #461D3A);
+    min-height: 100vh;
+}
 
 .dashboard-container {
     width: 80%;
     margin: auto;
     padding-top: 40px;
+    color: white;
+}
+.welcome-section h2 {
+    margin-bottom: 20px;
+    color: #461D3A;
 }
 
 /* Header */
@@ -88,8 +100,8 @@ button:hover {
     right: 30px;
     text-decoration: none;
     padding: 10px 18px;
-    background: #ff4d4d;
-    color: white;
+    background: #3A345B;
+    color: #F3C8DD;
     border-radius: 6px;
     font-weight: 600;
 }
@@ -100,7 +112,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: white;
+    background: #312A44;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -115,6 +127,7 @@ button:hover {
 
 .task-card label {
     font-size: 16px;
+    color: white;
 }
 
 /* ---------- PROGRESS BAR ---------- */
@@ -129,12 +142,32 @@ button:hover {
 
 .progress-fill {
     height: 100%;
-    background: #4CAF50;
+    background: linear-gradient(135deg, #FABEFF, #BD89D5);
     border-radius: 20px;
 }
 
 /* ---------- HR TASK TABLE ---------- */
-
+.hr_dashboard {
+    background: linear-gradient(135deg, #CCD0CF, #9Ba8AB, #4A5C6A, #253745, #11212D, #06141B);
+    min-height: 100vh;
+}
+.welcome-section-hr {
+    margin-bottom: 10px;
+    color: #253745;
+}
+.dashboard-header-hr h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #253745;
+}
+.dashboard-container-hr {
+    width: 80%;
+    margin: auto;
+    padding-top: 40px;
+    color: #253745
+}
 .task-table {
     width: 100%;
     border-collapse: collapse;
@@ -142,7 +175,20 @@ button:hover {
     background: white;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
 }
-
+.primary-btn {
+    padding: 6px 12px;
+    background: #4A5C6A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.task-list {
+    list-style: none;
+    padding: 0;
+    color: white;
+    
+}
 .task-table th,
 .task-table td {
     padding: 12px;
@@ -156,4 +202,62 @@ button:hover {
 
 .task-table tr:hover {
     background: #f9f9f9;
+}
+.task-checkbox{
+position:relative;
+display:inline-block;
+width:20px;
+height:20px;
+}
+
+.task-checkbox input{
+opacity:0;
+width:0;
+height:0;
+}
+
+.checkmark{
+position:absolute;
+top:0;
+left:0;
+width:20px;
+height:20px;
+border:2px solid #cd87e0;
+border-radius:50%;
+cursor:pointer;
+transition:all 0.25s ease;
+}
+
+/* When checked */
+
+.task-checkbox input:checked + .checkmark{
+background:#F3C8DD;
+transform:scale(1.1);
+}
+.task-text{
+font-size:16px;
+margin-left: 10px;
+}
+
+.task-checkbox input:checked ~ .task-text{
+text-decoration:line-through;
+color:gray;
+}
+.task-card form{
+display:flex;
+align-items:center;
+}
+.task-text{
+margin-left:10px;
+font-size:16px;
+transition:0.3s;
+}
+
+.task-checkbox input:checked ~ .task-text{
+text-decoration:line-through;
+color:#888;
+}
+.task-card:hover{
+transform:scale(1.01);
+transition:0.2s;
 }

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body>
+<body class="emp_dashboard">
 
 <div class="dashboard-container">
 
@@ -14,9 +14,8 @@
         <a href="/logout" class="logout-btn">Logout</a>
     </header>
 
-    <section class="welcome-section">
-        <h2>Welcome</h2>
-        <h3>Progress</h3>
+    <section class="welcome-section">      
+        <h2>Progress</h2>
 
         <div class="progress-bar">
 
@@ -33,14 +32,21 @@
 
         <div class="task-card">
 
-        <form method="POST" action="/complete_task/{{task.id}}">
+            <form method="POST" action="/complete_task/{{task.id}}">
 
-        <input type="checkbox"onchange="this.form.submit()"
-{% if task.completed %} checked {% endif %}>
+            <label class="task-checkbox">
 
-            <label>{{task.title}}</label>
+            <input type="checkbox"onchange="this.form.submit()"{% if task.completed %} checked {% endif %}>
 
-        </form>
+                    <span class="checkmark"></span>
+
+                    </label>
+
+                    <span class="task-text">
+                {{task.title}}
+                </span>
+
+            </form>
 
         </div>
 
