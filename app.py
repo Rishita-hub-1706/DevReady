@@ -97,7 +97,15 @@ def complete_task(task_id):
 
     return redirect(url_for("employee_dashboard"))
 
+@app.route("/delete_task/<int:task_id>", methods=["POST"])
+def delete_task(task_id):
 
+    task = Task.query.get(task_id)
+
+    db.session.delete(task)
+    db.session.commit()
+
+    return redirect(url_for("hr_dashboard"))
 
 
 

@@ -261,3 +261,15 @@ color:#888;
 transform:scale(1.01);
 transition:0.2s;
 }
+.delete-btn{
+background:#ff4d4d;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.delete-btn:hover{
+background:#cc0000;
+}
